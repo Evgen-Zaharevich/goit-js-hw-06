@@ -24,11 +24,10 @@ const images = [
   },
 ];
 
-const createImagesItem = images.map((image) => `<li><img class=pictures src=${image.url} alt=${image.alt}></li>`);
+const createImagesItem = images.map((image) =>
+  `<li><img class=pictures src=${image.url} alt=${image.alt}></li>`);
 
 const galleryRef = document.querySelector(`.gallery`)
+
 galleryRef.insertAdjacentHTML("afterbegin", createImagesItem);
 
-const img = document.querySelectorAll(`.pictures`);
-
-console.log(img);
