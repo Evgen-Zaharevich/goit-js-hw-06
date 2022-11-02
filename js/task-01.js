@@ -34,7 +34,7 @@ console.log(`Category: ${categoryProductsRef.textContent}`)
 console.log(`Elements: ${categoryProductsRef.nextElementSibling.children.length}`)
 console.log(` `);
 
-const categoryTechnologiesRef = categoriesRef[1].firstElementChild;
+const categoryTechnologiesRef = categoriesRef[2].firstElementChild;
 console.log(`Category: ${categoryTechnologiesRef.textContent}`)
 console.log(`Elements: ${categoryTechnologiesRef.nextElementSibling.children.length}`)
 console.log(` `);
