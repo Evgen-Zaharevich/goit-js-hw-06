@@ -27,7 +27,7 @@ const images = [
 const createImagesItem = images.map((image) =>
   `<li><img class=pictures src=${image.url} alt=${image.alt}></li>`);
 
-const galleryRef = document.querySelector(`.gallery`)
+const refGallery = document.querySelector(`.gallery`)
 
-galleryRef.insertAdjacentHTML("afterbegin", createImagesItem);
+refGallery.insertAdjacentHTML("afterbegin", createImagesItem);
 

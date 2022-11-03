@@ -17,15 +17,15 @@ const ingredients = [
 ];
 
 const ingredientsItem = ingredients.map(name => {
-  const ItemRef = document.createElement(`li`);
-  ItemRef.textContent = name;
-  ItemRef.classList.add(`item`);
+  const Item = document.createElement(`li`);
+  Item.textContent = name;
+  Item.classList.add(`item`);
   // console.log(ItemRef);
-  return ItemRef;
+  return Item;
 });
 
-const ingredientsContainer = document.querySelector(`#ingredients`);
-ingredientsContainer.append(...ingredientsItem);
+const refIngredientsContainer = document.querySelector(`#ingredients`);
+refIngredientsContainer.append(...ingredientsItem);
 
 
 

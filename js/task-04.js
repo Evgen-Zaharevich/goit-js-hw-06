@@ -5,11 +5,11 @@ const refNumberValue = document.querySelector(`#value`)
 const counter = {
     value: 0,
 
-    subNumber () {
+    subNumber() {
         this.value -= 1;
     },
 
-    addNumber () {
+    addNumber() {
         this.value += 1;
     },
 
