@@ -5,8 +5,6 @@
 // Добавит элементу класс item.
 // После чего вставит все <li> за одну операцию в список ul#ingredients.
 
-
-
 const ingredients = [
   'Potatoes',
   'Mushrooms',
@@ -16,10 +14,18 @@ const ingredients = [
   'Condiments',
 ];
 
+const createElementMarkup = (ingredients) => {
+  return ingredients.map(ingredient => {
+    const element = document.createElement(`li`);
+    element.textContent = ingredient;
+    element.classList.add(`item`)
+    return element;
+  })
+}
+const elementMarkup = createElementMarkup(ingredients)
 
-
-
-
+const ingredientsRef = document.querySelector(`#ingredients`);
+ingredientsRef.append(...elementMarkup);
 
 
 
