@@ -21,25 +21,3 @@
 // 5.Для доступа к элементам формы используй свойство elements.
 // Выведи обьект с введенными данными в консоль и очисти значения полей формы методом reset.
 
-const form = document.querySelector(`.login-form`)
-
-form.addEventListener(`submit`, onFormSubmit);
-
-function onFormSubmit(event) {
-    event.preventDefault()
-
-    const { email, password
-    } = event.currentTarget.elements
-    
-    if (email.value === `` || password.value === ``) {
-        alert(`Attention, there are empty input fields. 
-Please fill in all required input fields`)
-    } else {
-        const formData = {
-            email: email.value,
-            password: password.value
-        }
-        console.log("formData", formData)
-    }
-    event.currentTarget.reset()
-}   
