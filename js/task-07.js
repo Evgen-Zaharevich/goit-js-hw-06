@@ -12,6 +12,8 @@ const textRef = document.querySelector(`#text`)
 
 fontSizeControlRef.setAttribute(`value`, `16`);
 
-fontSizeControlRef.addEventListener(`input`, (event) => {
+fontSizeControlRef.addEventListener(`input`, onChangingTextSize)
+
+onChangingTextSize = (event) => {
     textRef.style.fontSize = event.currentTarget.value + 'px';
-})
+}
