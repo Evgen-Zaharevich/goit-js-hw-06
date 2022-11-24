@@ -14,3 +14,22 @@ function getRandomHexColor() {
     .toString(16)
     .padStart(6, 0)}`;
 } */}
+
+const buttonRef = document.querySelector(`.change-color`);
+const textValueRef = document.querySelector(`.color`);
+const bodyRef = document.body;
+
+buttonRef.addEventListener(`click`, onChangeColorBody);
+
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, 0)}`;
+}
+
+function onChangeColorBody(event) {
+  const color = getRandomHexColor();
+  bodyRef.style.backgroundColor = color;
+  textValueRef.textContent = color;
+   
+}

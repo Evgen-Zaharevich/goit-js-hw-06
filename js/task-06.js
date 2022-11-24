@@ -15,7 +15,7 @@
 const inputRef = document.querySelector(`#validation-input`);
 const valueAtribute = inputRef.getAttribute(`data-length`);
 
-checkingEnteredValue = (event) => {
+function checkingEnteredValue (event) {
     if (event.currentTarget.value.length !== Number(valueAtribute)) {
         inputRef.classList.add(`invalid`);
     } else {

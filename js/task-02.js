@@ -14,7 +14,7 @@ const ingredients = [
   'Condiments',
 ];
 
-const createElementMarkup = (ingredients) => {
+function createElementMarkup (ingredients) {
   return ingredients.map(ingredient => {
     const element = document.createElement(`li`);
     element.textContent = ingredient;
