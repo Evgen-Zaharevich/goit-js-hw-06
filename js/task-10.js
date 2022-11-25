@@ -15,23 +15,42 @@
 
 // Размеры самого первого <div> - 30px на 30px.
 // Каждый элемент после первого, должен быть шире и выше предыдущего на 10px.
-// Все элементы должены иметь случайный цвет фона в формате HEX. 
+// Все элементы должны иметь случайный цвет фона в формате HEX. 
 // Используй готовую функцию getRandomHexColor для получения цвета.
+
+// Создай функцию destroyBoxes(), которая очищает содержимое div#boxes,
+// тем самым удаляя все созданные элементы.
+
+const inputRef = document.querySelector(`input`);
+const createButtonRef = document.querySelector(`[data-create]`);
+const destroyButtonRef = document.querySelector(`[data-destroy]`);
+const boxesRef = document.querySelector(`#boxes`);
+
+inputRef.addEventListener(`input`, getInputValue);
+createButtonRef.addEventListener(`click`, createBoxes);
+destroyButtonRef.addEventListener(`click`, destroyBoxes);
+
+function getInputValue (event) {
+  return event.currentTarget.value;
+}
+
+function createBoxes(amount) {
+  amount = Number(inputRef.value);
+  for (let i = 0; i < amount; i+=1) {
+    const box = document.createElement(`div`);
+    box.style.width = `${30 + 10 * i}px`;
+    box.style.height = `${30 + 10 * i}px`;
+    box.style.backgroundColor = `${getRandomHexColor()}`;
+    boxesRef.append(box);
+  }
+}
+
+function destroyBoxes() {
+  boxesRef.innerHTML = ``;
+}
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
     .toString(16)
     .padStart(6, 0)}`;
 }
-// Создай функцию destroyBoxes(), которая очищает содержимое div#boxes,
-// тем самым удаляя все созданные элементы.
-
-const controlsRef = document.querySelector(`#controls`);
-const inputRef = controlsRef.firstElementChild;
-const createButtonRef = document.querySelector(`[data-create]`);
-const destroyButtonRef = document.querySelector(`[data-destroy]`);
-const boxesRef = document.querySelector(`#boxes`);
-
-inputRef.addEventListener(`click`, (event) => {
-    console.log(event.currentTarget.value);
-})
