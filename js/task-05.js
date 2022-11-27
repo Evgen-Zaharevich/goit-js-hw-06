@@ -8,12 +8,12 @@
 const inputFormRef = document.querySelector(`#name-input`);
 const userNameRef = document.querySelector(`#name-output`);
 
-inputFormRef.addEventListener(`input`, changeNameToValueEnteredInInput)
+inputFormRef.addEventListener(`input`, changeNameToValueEnteredInInput);
 
-function changeNameToValueEnteredInInput (event) {
-    if (!event.currentTarget.value) {
-        userNameRef.textContent = `Anonymous`;
-    } else {
-        userNameRef.textContent = event.currentTarget.value;
-    }
+function changeNameToValueEnteredInInput(event) {
+  if (!event.currentTarget.value.trim()) {
+    userNameRef.textContent = `Anonymous`;
+  } else {
+    userNameRef.textContent = event.currentTarget.value;
+  }
 }

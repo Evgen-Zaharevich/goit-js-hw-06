@@ -39,28 +39,14 @@
 // console.log(`Elements: ${categoryTechnologiesRef.nextElementSibling.children.length}`)
 // console.log(` `);
 
-
 // ===================================================================================
 // part 2
 
-const categoriesRef = document.querySelectorAll('.item')
-console.log(`Number of categories: ${categoriesRef.length}`)
+const categoriesRef = document.querySelectorAll(".item");
+console.log(`Number of categories: ${categoriesRef.length}`);
 console.log(` `);
 
-categoriesRef.forEach(category => {
-    let categoryGroup = [...category.children];
-
-    categoryGroup.forEach(element => {
-        if (element.tagName === `H2`) {
-            console.log(` `);
-            console.log(`Category: ${element.textContent}`);
-        }
-    })
-
-    categoryGroup.forEach(element => {
-        if (element.tagName === `UL`) {
-            console.log(`Elements: ${element.children.length}`);
-        }
-    })
-})
-
+categoriesRef.forEach((category) => {
+  console.log(`Category: ${category.firstElementChild.textContent}`);
+  console.log(`Elements: ${category.lastElementChild.children.length}`);
+});

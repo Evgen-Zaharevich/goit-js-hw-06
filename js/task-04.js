@@ -12,26 +12,26 @@
 
 const decrementRef = document.querySelector(`button[data-action="decrement"]`);
 const incrementRef = document.querySelector(`button[data-action="increment"]`);
-const valueRef = document.querySelector(`#value`)
+const valueRef = document.querySelector(`#value`);
 
 const counterValue = {
-    value: 0,
-    
-    changeValueUp() {
-    this.value += 1
-    },
+  value: 0,
 
-    changeValueDown () {
+  changeValueUp() {
+    this.value += 1;
+  },
+
+  changeValueDown() {
     this.value -= 1;
-    },  
-}
+  },
+};
 
 decrementRef.addEventListener(`click`, () => {
-    counterValue.changeValueUp();
-    valueRef.textContent = counterValue.value;
+  counterValue.changeValueDown();
+  valueRef.textContent = counterValue.value;
 });
 
 incrementRef.addEventListener(`click`, () => {
-    counterValue.changeValueDown();
-    valueRef.textContent = counterValue.value;
+  counterValue.changeValueUp();
+  valueRef.textContent = counterValue.value;
 });

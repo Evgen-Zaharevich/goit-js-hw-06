@@ -15,13 +15,18 @@
 const inputRef = document.querySelector(`#validation-input`);
 const valueAtribute = inputRef.getAttribute(`data-length`);
 
-function checkingEnteredValue (event) {
-    if (event.currentTarget.value.length !== Number(valueAtribute)) {
-        inputRef.classList.add(`invalid`);
-    } else {
-        inputRef.classList.remove(`invalid`);
-        inputRef.classList.add(`valid`);
-    }
-}   
+function changeClass(className) {
+  inputRef.classList.add(className);
+}
+
+function removeClass(className) {
+  inputRef.classList.remove(className);
+}
+
+function checkingEnteredValue(event) {
+  event.currentTarget.value.length === Number(valueAtribute)
+    ? changeClass(`valid`) || removeClass(`invalid`)
+    : changeClass(`invalid`);
+}
 
 inputRef.addEventListener(`blur`, checkingEnteredValue);
