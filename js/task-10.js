@@ -1,4 +1,4 @@
-// Напиши скрипт создания и очистки коллекции элементов. 
+// Напиши скрипт создания и очистки коллекции элементов.
 // Пользователь вводит количество элементов в input и нажимает кнопку Создать,
 // после чего рендерится коллекция.При нажатии на кнопку Очистить, коллекция элементов очищается.
 
@@ -10,12 +10,12 @@
 
 // <div id="boxes"></div>
 
-// Создай функцию createBoxes(amount), которая принимает один параметр - число. 
+// Создай функцию createBoxes(amount), которая принимает один параметр - число.
 // Функция создает столько < div >, сколько указано в amount и добавляет их в div#boxes.
 
 // Размеры самого первого <div> - 30px на 30px.
 // Каждый элемент после первого, должен быть шире и выше предыдущего на 10px.
-// Все элементы должны иметь случайный цвет фона в формате HEX. 
+// Все элементы должны иметь случайный цвет фона в формате HEX.
 // Используй готовую функцию getRandomHexColor для получения цвета.
 
 // Создай функцию destroyBoxes(), которая очищает содержимое div#boxes,
@@ -26,25 +26,28 @@ const createButtonRef = document.querySelector(`[data-create]`);
 const destroyButtonRef = document.querySelector(`[data-destroy]`);
 const boxesRef = document.querySelector(`#boxes`);
 
-inputRef.addEventListener(`input`, getInputValue);
-createButtonRef.addEventListener(`click`, createBoxes);
+createButtonRef.addEventListener(`click`, getInputValue);
 destroyButtonRef.addEventListener(`click`, destroyBoxes);
 
-function getInputValue (event) {
-  return event.currentTarget.value;
+function getInputValue(event) {
+  const amount = inputRef.valueAsNumber;
+  if (!amount) return;
+  createBoxes(amount);
 }
 
 function createBoxes(amount) {
-  amount = Number(inputRef.value);
-  for (let i = 0; i < amount; i+=1) {
+  destroyBoxes();
+  const markup = [];
+  for (let i = 0; i < amount; i += 1) {
     const box = document.createElement(`div`);
-    box.style.width = `${30 + 10 * i}px`;
-    box.style.height = `${30 + 10 * i}px`;
+    const size = 30 + 10 * i;
+    box.style.width = `${size}px`;
+    box.style.height = `${size}px`;
     box.style.backgroundColor = `${getRandomHexColor()}`;
-    boxesRef.append(box);
+    markup.push(box);
   }
+  boxesRef.append(...markup);
 }
-createBoxes()
 
 function destroyBoxes() {
   boxesRef.innerHTML = ``;
