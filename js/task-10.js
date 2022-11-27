@@ -38,6 +38,7 @@ function getInputValue(event) {
 function createBoxes(amount) {
   destroyBoxes();
   const markup = [];
+
   for (let i = 0; i < amount; i += 1) {
     const box = document.createElement(`div`);
     const size = 30 + 10 * i;
